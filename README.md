@@ -18,7 +18,11 @@ sudo service cardano-node stop
 cp cardano-node ~/.local/bin/
 
 # restart cardano-node
-sudo service cardano-node restart
+sudo service cardano-node start
+
+# v1.27.0 take a few mins to start
+# check the log
+journalctl --unit cardano-node.service -f
 
 # check version
 cardano-cli --version
